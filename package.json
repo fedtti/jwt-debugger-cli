@@ -1,0 +1,39 @@
+{
+  "name": "@fedtti/jwt-debugger-cli",
+  "version": "1.0.0",
+  "description": "JWT Debugger CLI",
+  "keywords": [],
+  "homepage": "https://github.com/fedtti/jwt-debugger-cli#readme",
+  "bugs": {
+    "url": "https://github.com/fedtti/jwt-debugger-cli/issues"
+  },
+  "license": "MIT",
+  "author": "Federico Moretti <hello@federicomoretti.it> (https://federicomoretti.it)",
+  "main": "./bin/index.js",
+  "bin": {
+    "jwt-debugger-cli": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedtti/jwt-debugger-cli.git"
+  },
+  "scripts": {
+    "clean": "shx rm -fr ./bin/* ./node_modules/*",
+    "build": "tsc",
+    "start": "node ./bin/index.js"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.3.0",
+    "shx": "^0.4.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.8.3",
+    "chalk": "^5.6.0",
+    "figlet": "^1.8.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "type": "module"
+}
