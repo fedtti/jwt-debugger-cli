@@ -17,7 +17,8 @@ const init: any = async (): Promise<void> => {
                 // TODO: @fedtti
               },
               (argv) => {
-                decoder(argv.token);
+                // TODO: @fedtti
+                decoder(argv.token, argv.secret, argv.encoding, argv.publicKey);
               }
             )
             .command(
