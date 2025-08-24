@@ -1,5 +1,6 @@
 import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
+import { readFileSync } from 'fs';
 import jwt from 'jsonwebtoken';
 
 export const run: any = async (token?: string, secret?: jwt.Secret, encoding?: 'utf8' | 'base64', publicKey?: jwt.PublicKey): Promise<void> => {
@@ -45,10 +46,15 @@ export const run: any = async (token?: string, secret?: jwt.Secret, encoding?: '
         });
         secretOrPublicKey = encoding === 'base64' ? Buffer.from(secret, 'base64') as jwt.Secret : secret as jwt.Secret;
       } else {
-
+        const publicKeyFile: string = await input({
+          message: chalk.blue('Public Key: '),
+          required: true
+        });
+        publicKey = readFileSync(publicKeyFile, 'utf-8');
+        secretOrPublicKey = publicKey as jwt.PublicKey;
       }
     } else {
-
+      // TODO: @fedtti
     }
     console.info(chalk.green.bold(`\n\r${JSON.stringify(jwt.verify(token, secretOrPublicKey!))}`));
   } catch (error) {
