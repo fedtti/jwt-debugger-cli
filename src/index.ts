@@ -7,6 +7,9 @@ import { select } from '@inquirer/prompts';
 import { run as decoder } from './lib/utils/decode.js';
 import { run as encoder } from './lib/utils/encode.js';
 
+/**
+ *
+ */
 const init: any = async (): Promise<void> => {
   console.clear();
   try {
@@ -16,7 +19,7 @@ const init: any = async (): Promise<void> => {
               'JWT Decoder',
               () => {},
               async (argv) => {
-                // TODO: @fedtti
+                // TODO: @fedtti - Check for possible conflicts between arguments.
                 decoder(argv.token, argv.secret, argv.encoding, argv.publicKey);
               }
             )
@@ -50,7 +53,7 @@ const init: any = async (): Promise<void> => {
                 }
               }
             )
-            .version('JWT Debugger CLI 1.0.0')
+            .version(`JWT Debugger CLI ${process.env.npm_package_version}`)
             .help()
             .parse();
   } catch (error) {
@@ -59,4 +62,4 @@ const init: any = async (): Promise<void> => {
   }
 }
 
-init();
+init(); //
