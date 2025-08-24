@@ -7,9 +7,6 @@ import { select } from '@inquirer/prompts';
 import { run as decoder } from './lib/utils/decode.js';
 import { run as encoder } from './lib/utils/encode.js';
 
-/**
- *
- */
 const init: any = async (): Promise<void> => {
   console.clear();
   try {
@@ -62,4 +59,4 @@ const init: any = async (): Promise<void> => {
   }
 }
 
-init(); //
+init();
