@@ -54,9 +54,9 @@ export const run: any = async (token?: string, secret?: jwt.Secret, encoding?: '
         secretOrPublicKey = publicKey as jwt.PublicKey;
       }
     } else {
-      // TODO: @fedtti
+      secretOrPublicKey = !!secret ? secret as jwt.Secret : publicKey as jwt.PublicKey; // TODO: @fedtti - Check if it works with Base64 encoded secrets.
     }
-    console.info(chalk.green.bold(`\n\r${JSON.stringify(jwt.verify(token, secretOrPublicKey!))}`));
+    console.info(chalk.green.bold(`\n\r${JSON.stringify(jwt.verify(token, secretOrPublicKey))}`));
   } catch (error) {
     console.error(chalk.red.bold(`\n\r${error}`));
     process.exit(1);
